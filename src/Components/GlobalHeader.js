@@ -1,3 +1,4 @@
+import React from 'react';
 import './GlobalHeader.css';
 
 const GlobalHeader = () => {

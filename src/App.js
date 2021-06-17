@@ -1,5 +1,7 @@
+import React from 'react';
 import GlobalHeader from './Components/GlobalHeader';
 import Card from './Components/Card';
+
 const App = () => {
   const myCard = [
     {
