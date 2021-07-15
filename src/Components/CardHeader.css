@@ -4,3 +4,10 @@
     background: #e4e4e4;
     border-bottom: 2px solid black;
 }
+
+.card-header-checked{
+    font: small-caps bold 20px/1 sans-serif;
+    padding: 5px;
+    background: #5582ff;
+    border-bottom: 2px solid black;
+}
