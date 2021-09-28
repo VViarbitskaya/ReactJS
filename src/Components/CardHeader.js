@@ -11,7 +11,7 @@ const CardHeader = props => {
 
   return (
     <div className={isActive ? 'card-header' : 'card-header-checked'}>
-      {props.cardHeader} <MyCheckBox handleToggle={handleToggle} />{' '}
+      {props.cardHeader} <MyCheckBox handleToggle={handleToggle} />
     </div>
   );
 };
