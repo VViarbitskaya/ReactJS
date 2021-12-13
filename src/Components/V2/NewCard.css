@@ -1,3 +1,11 @@
+.card-frame {
+  width: 200px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin: 20px;
+
+}
+
 .card-header {
   font: small-caps bold 20px/1 sans-serif;
   padding: 5px;
@@ -11,3 +19,9 @@
   background: #5582ff;
   border-bottom: 2px solid black;
 }
+
+.card-body {
+  font: 16px/1 sans-serif;
+  padding: 5px 0px 5px 10px;
+}
+

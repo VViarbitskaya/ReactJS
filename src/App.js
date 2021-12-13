@@ -1,6 +1,6 @@
 import React from 'react';
-import GlobalHeader from './Components/GlobalHeader';
-import Card from './Components/Card';
+import NewGlobalHeader from './Components/V2/NewGlobalHeader';
+import NewCard from './Components/V2/NewCard';
 
 const App = () => {
   const myCard = [
@@ -12,8 +12,8 @@ const App = () => {
   ];
   return (
     <>
-      <GlobalHeader />
-      <Card items={myCard} />
+      <NewGlobalHeader />
+      <NewCard items={myCard} />
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import './CheckBox.css';
 
-const MyCheckBox = ({ handleToggle }) => {
+const CheckBox = ({ handleToggle }) => {
   return (
     <input
       className="check-box"
@@ -11,4 +11,4 @@ const MyCheckBox = ({ handleToggle }) => {
     ></input>
   );
 };
-export default MyCheckBox;
+export default CheckBox;
