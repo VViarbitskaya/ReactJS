@@ -1,7 +1,7 @@
 import React from 'react';
-import './GlobalHeader.css';
+import './NewGlobalHeader.css';
 
-const GlobalHeader = () => {
+const NewGlobalHeader = () => {
   return (
     <div className="global-header">
       <div>My Header</div>
@@ -9,4 +9,4 @@ const GlobalHeader = () => {
   );
 };
 
-export default GlobalHeader;
+export default NewGlobalHeader;
