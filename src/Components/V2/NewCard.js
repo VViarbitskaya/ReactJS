@@ -11,8 +11,8 @@ const NewCard = (props) => {
 
     const [isActive, setActive] = useState(true);
     const [isEdit, setEdit] = useState(false);
-    const [header, setHeader] = useState(props.items[0].header);
-    const [body, setBody] = useState(props.items[0].body);
+    const [header, setHeader] = useState(props.content.header);
+    const [body, setBody] = useState(props.content.body);
     const [save, setSave] = useState(false);
 
 
@@ -38,14 +38,19 @@ const NewCard = (props) => {
         setSave(true);
         setEdit(false);
         console.log(save);
+        props.save({
+            ...props.content,
+            header,
+            body
+        })
     };
 
     const cancelHandler = () => {
         setEdit(false);
         setActive(true);
         setSave(false);
-        setHeader(props.items[0].header);
-        setBody(props.items[0].body);
+        setHeader(props.content.header);
+        setBody(props.content.body);
     };
 
     return (
