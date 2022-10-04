@@ -1,14 +1,15 @@
 import React from 'react';
+
 import './CheckBox.css';
 
-const MyCheckBox = ({ handleToggle }) => {
+const CheckBox = ({ toggleHandler }) => {
   return (
     <input
       className="check-box"
       type="checkbox"
       color="default"
-      onChange={handleToggle}
+      onChange={toggleHandler}
     ></input>
   );
 };
-export default MyCheckBox;
+export default CheckBox;

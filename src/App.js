@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import GlobalHeader from './Components/GlobalHeader';
 import Card from './Components/Card';
 
 const App = () => {
-  const myCard = [
-    {
-      id: 1,
-      header: 'Card Header',
-      body: 'Card Body',
-    },
-  ];
+  const [card, setCard] = useState({
+    id: 1,
+    header: 'Card Header',
+    body: 'Card Body',
+  });
+
   return (
     <>
       <GlobalHeader />
-      <Card items={myCard} />
+      <Card content={card} save={setCard} />
     </>
   );
 };
