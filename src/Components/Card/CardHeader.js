@@ -1,27 +1,28 @@
-import React, { useState } from "react";
-import CheckBox from "../Buttons/CheckBox";
-import EditButton from "../Buttons/EditButton";
+import React from 'react';
+
 import './CardStyles.css';
 import '../Buttons/EditButton.css';
 
+import CheckBox from '../Buttons/CheckBox';
+import EditButton from '../Buttons/EditButton';
 
-const CardHeader = (props) => {
+var classNames = require('classnames');
 
-    const [isActive, setActive] = useState(true);
-
-    const handleToggle = () => {
-        setActive(!isActive);
-    };
-
-    return (
-        <div>
-            <div className={isActive ? 'card-header' : 'card-header-checked'}>
-                {props.header}
-                <EditButton className="edit-button" editHandler={props.editHandler}/>
-                <CheckBox handleToggle={handleToggle} />
-            </div>
-        </div>
-    );
+const CardHeader = ({ header, editHandler, toggleHandler, isActive }) => {
+  return (
+    <div>
+      <div
+        className={classNames({
+          'card-header': isActive,
+          'card-header-checked': !isActive,
+        })}
+      >
+        {header}
+        <EditButton className="edit-button" editHandler={editHandler} />
+        <CheckBox toggleHandler={toggleHandler} />
+      </div>
+    </div>
+  );
 };
 
 export default CardHeader;

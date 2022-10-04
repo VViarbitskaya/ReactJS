@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+
 import GlobalHeader from './Components/GlobalHeader';
-import Card from './Components/Card/Card';
+import Card from './Components/Card';
 
 const App = () => {
-
   const [card, setCard] = useState({
     id: 1,
     header: 'Card Header',
