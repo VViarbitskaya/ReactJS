@@ -7,15 +7,28 @@ import CardBody from './CardBody';
 import CardHeaderEditable from './CardHeaderEditable';
 import CardBodyEditable from './CardBodyEditable';
 
-const Card = ({ content, save }) => {
-  const [isEdit, setEdit] = useState(false);
+const Card = ({ content, isReadModeOn }) => {
+  let [isEdit, setEdit] = useState(false);
   const [header, setHeader] = useState(content.header);
   const [body, setBody] = useState(content.body);
-  const [isActive, setActive] = useState(true);
+  let [isActive, setActive] = useState(true);
+  const [card, setCardData] = useState(content);
 
-  const toggleHandler = () => setActive(!isActive);
+  const toggleHandler = () => {
+    isActive = !isActive;
+    if (isReadModeOn) {
+      isActive = true;
+    }
+    setActive(isActive);
+  };
 
-  const editHandler = () => setEdit(!isEdit);
+  const editHandler = () => {
+    isEdit = !isEdit;
+    if (isReadModeOn) {
+      isEdit = false;
+    }
+    setEdit(isEdit);
+  };
 
   const saveHeader = event => setHeader(event.target.value);
 
@@ -24,19 +37,29 @@ const Card = ({ content, save }) => {
   const saveHandler = event => {
     event.preventDefault();
     setEdit(false);
-    save({
-      ...content,
+    setCardData({
+      ...card,
       header,
       body,
     });
   };
 
   const cancelHandler = event => {
-    event.preventDefault();
+    if (!isReadModeOn) {
+      event.preventDefault();
+    }
     setEdit(false);
-    setHeader(content.header);
-    setBody(content.body);
+    setHeader(card.header);
+    setBody(card.body);
   };
+
+  React.useEffect(() => {
+    if (isReadModeOn) {
+      toggleHandler();
+      editHandler();
+      cancelHandler();
+    }
+  });
 
   return (
     <div className="card-frame">
@@ -60,12 +83,14 @@ const Card = ({ content, save }) => {
             editHandler={editHandler}
             toggleHandler={toggleHandler}
             isActive={isActive}
+            isReadModeOn={isReadModeOn}
           />
           <CardBody
             body={body}
             editHandler={editHandler}
             toggleHandler={toggleHandler}
             isActive={isActive}
+            isReadModeOn={isReadModeOn}
           />
         </div>
       )}
